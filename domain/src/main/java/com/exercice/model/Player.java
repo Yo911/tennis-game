@@ -25,6 +25,10 @@ public class Player {
         };
     }
 
+    public void incrementScore() {
+        scoreIndex++;
+    }
+
     public String getScore(Player p2) {
         boolean aboutToHaveAWinner = scoreIndex >= 2 && p2.scoreIndex >= 2;
         Optional<String> scoreAboutToHaveAWinner = aboutToHaveAWinner ?

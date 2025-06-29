@@ -69,7 +69,7 @@ class PlayerTest {
                 .build();
 
         String score1 = playerA.getScore(playerB);
-        playerB.setScoreIndex(3);
+        playerB.incrementScore();
         String score2 = playerA.getScore(playerB);
 
 
@@ -91,19 +91,19 @@ class PlayerTest {
 
         String score1 = playerA.getScore(playerB); // avantage A
 
-        playerB.setScoreIndex(3);
+        playerB.incrementScore();
         String score2 = playerA.getScore(playerB); // DEUCE
 
-        playerB.setScoreIndex(4);
+        playerB.incrementScore();
         String score3 = playerA.getScore(playerB); // AVANTAGE B
 
-        playerA.setScoreIndex(4);
+        playerA.incrementScore();
         String score4 = playerA.getScore(playerB); // DEUCE
 
-        playerB.setScoreIndex(5);
+        playerB.incrementScore();
         String score5 = playerA.getScore(playerB); // AVANTAGE
 
-        playerB.setScoreIndex(6);
+        playerB.incrementScore();
         String score6 = playerA.getScore(playerB); // WIN
 
 
@@ -128,7 +128,7 @@ class PlayerTest {
                 .build();
 
         String score1 = playerA.getScore(playerB);
-        playerA.setScoreIndex(4);
+        playerA.incrementScore();
         String score2 = playerA.getScore(playerB);
 
 
