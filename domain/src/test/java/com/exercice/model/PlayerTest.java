@@ -10,7 +10,7 @@ class PlayerTest {
     void should_get_score() {
         Player playerA = Player.builder()
                 .name("A")
-                .score(15)
+                .scoreIndex(1)
                 .build();
 
         Player playerB = Player.builder()
@@ -26,12 +26,12 @@ class PlayerTest {
     void should_get_score_deuce() {
         Player playerA = Player.builder()
                 .name("A")
-                .score(30)
+                .scoreIndex(2)
                 .build();
 
         Player playerB = Player.builder()
                 .name("B")
-                .score(30)
+                .scoreIndex(2)
                 .build();
 
         String score = playerA.getScore(playerB);
@@ -40,20 +40,62 @@ class PlayerTest {
     }
 
     @Test
-    void should_get_score_deuce() {
+    void should_get_score_adventage() {
         Player playerA = Player.builder()
                 .name("A")
-                .score(40)
+                .scoreIndex(3)
                 .build();
 
         Player playerB = Player.builder()
                 .name("B")
-                .score(30)
+                .scoreIndex(2)
                 .build();
 
         String score = playerA.getScore(playerB);
 
-        assertThat(score).isEqualTo("Avantage");
+        assertThat(score).isEqualTo("Player A AVANTAGE");
+    }
+
+    @Test
+    void should_get_score_adventage_then_deuce() {
+        Player playerA = Player.builder()
+                .name("A")
+                .scoreIndex(3)
+                .build();
+
+        Player playerB = Player.builder()
+                .name("B")
+                .scoreIndex(2)
+                .build();
+
+        String score1 = playerA.getScore(playerB);
+        playerB.setScoreIndex(3);
+        String score2 = playerA.getScore(playerB);
+
+
+        assertThat(score1).isEqualTo("Player A AVANTAGE");
+        assertThat(score2).isEqualTo("DEUCE");
+    }
+
+    @Test
+    void should_get_score_adventage_then_win() {
+        Player playerA = Player.builder()
+                .name("A")
+                .scoreIndex(3)
+                .build();
+
+        Player playerB = Player.builder()
+                .name("B")
+                .scoreIndex(2)
+                .build();
+
+        String score1 = playerA.getScore(playerB);
+        playerA.setScoreIndex(4);
+        String score2 = playerA.getScore(playerB);
+
+
+        assertThat(score1).isEqualTo("Player A AVANTAGE");
+        assertThat(score2).isEqualTo("Player A WIN !");
     }
 
 }
