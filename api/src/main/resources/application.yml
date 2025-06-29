@@ -1,3 +1,13 @@
 spring:
   application:
     name: tennis
+
+  cloud:
+    stream:
+      bindings:
+        fullTennisGame-in-0:
+          destination: tennis-topic
+          group: tennis-group
+      kafka:
+        binder:
+          brokers: localhost:9092

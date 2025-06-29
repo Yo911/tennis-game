@@ -7,6 +7,7 @@ import com.exercice.ports.api.IGameService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -14,15 +15,15 @@ import java.util.stream.Collectors;
 public class TennisGameService implements IGameService {
 
     @Override
-    public String executeFullGame(String gamePoints) throws InvalidGamePointsException {
+    public List<String> executeFullGame(String gamePoints) throws InvalidGamePointsException {
         Game game = createGameFromPoints(gamePoints);
 
-        gamePoints.chars().mapToObj(c -> (char) c).forEach(point -> {
+        return gamePoints.chars().mapToObj(c -> (char) c).map(point -> {
             game.setPoint(String.valueOf(point));
-            log.info(game.getScore());
-        });
-
-        return game.getScore();
+            String score = game.getScore();
+            log.info(score);
+            return score;
+        }).toList();
     }
 
     private static Game createGameFromPoints(String gamePoints) throws InvalidGamePointsException {
