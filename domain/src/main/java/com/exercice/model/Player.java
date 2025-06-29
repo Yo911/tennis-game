@@ -11,6 +11,9 @@ public class Player {
     int score;
 
     public String getScore(Player p2) {
-        return "";
+        if (score == 30 && p2.score == 30) {
+            return "DEUCE";
+        }
+        return String.format("Player %s : %d / Player %s : %d", name, score, p2.name, p2.score);
     }
 }
