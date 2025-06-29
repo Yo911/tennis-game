@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class TennisGameController {
@@ -16,7 +18,7 @@ public class TennisGameController {
     public IGameService gameService;
 
     @PostMapping("/tennis/game")
-    public ResponseEntity<String> playFulllGame(@RequestParam String gamePoints) {
+    public ResponseEntity<List<String>> playFulllGame(@RequestParam String gamePoints) {
         return ResponseEntity.ok(gameService.executeFullGame(gamePoints));
     }
 }
