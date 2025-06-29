@@ -78,6 +78,44 @@ class PlayerTest {
     }
 
     @Test
+    void should_get_score_adventage_then_deuce_then_adventage_then_deuce_then_adventage_then_win() {
+        Player playerA = Player.builder()
+                .name("A")
+                .scoreIndex(3)
+                .build();
+
+        Player playerB = Player.builder()
+                .name("B")
+                .scoreIndex(2)
+                .build();
+
+        String score1 = playerA.getScore(playerB); // avantage A
+
+        playerB.setScoreIndex(3);
+        String score2 = playerA.getScore(playerB); // DEUCE
+
+        playerB.setScoreIndex(4);
+        String score3 = playerA.getScore(playerB); // AVANTAGE B
+
+        playerA.setScoreIndex(4);
+        String score4 = playerA.getScore(playerB); // DEUCE
+
+        playerB.setScoreIndex(5);
+        String score5 = playerA.getScore(playerB); // AVANTAGE
+
+        playerB.setScoreIndex(6);
+        String score6 = playerA.getScore(playerB); // WIN
+
+
+        assertThat(score1).isEqualTo("Player A AVANTAGE");
+        assertThat(score2).isEqualTo("DEUCE");
+        assertThat(score3).isEqualTo("Player B AVANTAGE");
+        assertThat(score4).isEqualTo("DEUCE");
+        assertThat(score5).isEqualTo("Player B AVANTAGE");
+        assertThat(score6).isEqualTo("Player B WIN !");
+    }
+
+    @Test
     void should_get_score_adventage_then_win() {
         Player playerA = Player.builder()
                 .name("A")
