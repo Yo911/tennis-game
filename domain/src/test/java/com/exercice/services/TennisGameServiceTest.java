@@ -16,7 +16,7 @@ class TennisGameServiceTest {
 
         List<String> result = service.executeFullGame("ABABAA");
 
-        assertThat(result.getLast()).isEqualTo("Player A WIN !");
+        assertThat(getLast(result)).isEqualTo("Player A WIN !");
     }
 
     @Test
@@ -25,7 +25,7 @@ class TennisGameServiceTest {
 
         List<String> result = service.executeFullGame("JSJSJJ");
 
-        assertThat(result.getLast()).isEqualTo("Player J WIN !");
+        assertThat(getLast(result)).isEqualTo("Player J WIN !");
     }
 
     @Test
@@ -34,7 +34,7 @@ class TennisGameServiceTest {
 
         List<String> result = service.executeFullGame("WNN");
 
-        assertThat(result.getLast()).isEqualTo("Player W : 15 / Player N : 30");
+        assertThat(getLast(result)).isEqualTo("Player W : 15 / Player N : 30");
     }
 
     @Test
@@ -42,6 +42,10 @@ class TennisGameServiceTest {
         TennisGameService service = new TennisGameService();
 
         assertThrows(InvalidGamePointsException.class, () -> service.executeFullGame("ABAZBAA"));
+    }
+
+    private String getLast(List<String> list) {
+        return list.get(list.size() - 1);
     }
 
 }
