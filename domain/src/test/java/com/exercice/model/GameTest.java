@@ -3,7 +3,6 @@ package com.exercice.model;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
@@ -19,8 +18,8 @@ class GameTest {
                 .build();
 
         Game game = Game.builder()
-                .p1(playerA)
-                .p2(playerB)
+                .playerOne(playerA)
+                .playerTwo(playerB)
                 .build();
 
         String score = game.getScore();
@@ -41,8 +40,8 @@ class GameTest {
                 .build();
 
         Game game = Game.builder()
-                .p1(playerA)
-                .p2(playerB)
+                .playerOne(playerA)
+                .playerTwo(playerB)
                 .build();
 
         String score = game.getScore();
@@ -63,8 +62,8 @@ class GameTest {
                 .build();
 
         Game game = Game.builder()
-                .p1(playerA)
-                .p2(playerB)
+                .playerOne(playerA)
+                .playerTwo(playerB)
                 .build();
 
         String score = game.getScore();
@@ -85,8 +84,8 @@ class GameTest {
                 .build();
 
         Game game = Game.builder()
-                .p1(playerA)
-                .p2(playerB)
+                .playerOne(playerA)
+                .playerTwo(playerB)
                 .build();
 
         String score1 = game.getScore();
@@ -111,8 +110,8 @@ class GameTest {
                 .build();
 
         Game game = Game.builder()
-                .p1(playerA)
-                .p2(playerB)
+                .playerOne(playerA)
+                .playerTwo(playerB)
                 .build();
 
         String score1 = game.getScore(); // avantage A
@@ -154,8 +153,8 @@ class GameTest {
                 .build();
 
         Game game = Game.builder()
-                .p1(playerA)
-                .p2(playerB)
+                .playerOne(playerA)
+                .playerTwo(playerB)
                 .build();
 
         String score1 = game.getScore();

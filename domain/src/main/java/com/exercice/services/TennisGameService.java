@@ -31,8 +31,8 @@ public class TennisGameService implements IGameService {
         checkValidPoints(players);
 
         return Game.builder()
-                .p1(Player.builder().name(players[0].toString()).build())
-                .p2(Player.builder().name(players[1].toString()).build())
+                .playerOne(Player.builder().name(players[0].toString()).build())
+                .playerTwo(Player.builder().name(players[1].toString()).build())
                 .build();
     }
 
