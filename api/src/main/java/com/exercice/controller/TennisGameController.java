@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")
-@AllArgsConstructor
+//@RestController
+//@RequestMapping("/api")
+//@CrossOrigin(origins = "http://localhost:3000")
+//@AllArgsConstructor
 public class TennisGameController {
 
     @Autowired

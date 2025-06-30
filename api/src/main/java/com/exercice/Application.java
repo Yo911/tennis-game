@@ -7,8 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {
         "com.exercice",
+        "com.exercice.domain",
         "com.exercice.rest",
-        "com.exercice.domain"
+        "com.exercice.rest.controller"
 })
 public class Application {
 
