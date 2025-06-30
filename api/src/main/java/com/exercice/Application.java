@@ -6,7 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
-        "com.exercice.controller"
+        "com.exercice",
+        "com.exercice.rest",
+        "com.exercice.domain"
 })
 public class Application {
 
