@@ -5,33 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.exercice</groupId>
-        <artifactId>tennis-game</artifactId>
+        <artifactId>infra</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>kafka</artifactId>
 
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-
     <dependencies>
+        <dependency>
+            <groupId>com.exercice</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-kafka</artifactId>
-            <version>4.1.1</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.exercice</groupId>
-            <artifactId>domain</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
     </dependencies>
 </project>
